@@ -4,14 +4,13 @@ import (
 	"encoding/json"
 	"errors"
 
-	"os/exec"
-
 	"github.com/Sourjaya/football-aws-lambda/pkg/validators"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
+	"github.com/google/uuid"
 )
 
 var (
@@ -25,7 +24,7 @@ var (
 	ErrorCouldNotPutItem         = "Could not put item in DB"
 	ErrorPlayerAlreadyExists     = "Player already exists"
 	ErrorPlayerDoesNotExist      = "Player does not exist"
-	ErrorGeneratingUUID          = "Could not generate UUID"
+	//ErrorGeneratingUUID          = "Could not generate UUID"
 )
 
 type Player struct {
@@ -91,11 +90,8 @@ func CreatePlayer(req events.APIGatewayProxyRequest, tableName string, client dy
 	if err := json.Unmarshal([]byte(req.Body), &p); err != nil {
 		return nil, errors.New(ErrorInvalidPlayerData)
 	}
-	id, err := exec.Command("uuidgen").Output()
-	if err != nil {
-		return nil, errors.New(ErrorGeneratingUUID)
-	}
-	p.Id = string(id)
+	id := uuid.New()
+	p.Id = id.String()
 
 	currentPlayer, _ := GetPlayer(p.Id, tableName, client)
 	if currentPlayer != nil && len(currentPlayer.Id) != 0 {
