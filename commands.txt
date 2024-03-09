@@ -1,0 +1,1 @@
+o mod init github.com/Sourjaya/football-aws-lambda
