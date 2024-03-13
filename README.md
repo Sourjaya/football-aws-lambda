@@ -23,11 +23,13 @@ Each player record in the DynamoDB table consists of the following fields:
 ## Usage
 To use this API, you can interact with it by sending ID or data as URL parameters using HTTP requests. Below are the available endpoints:
 
-- **GET /staging**: Retrieve all players.
-- **GET /staging?id={ID}**: Retrieve player by ID.
-- **POST /staging** : Create a new player.
-- **DELETE /staging?id={ID}**: Delete player by ID.
-- **PUT /staging?id={ID}**: Update player by ID.
+| HTTP Method | EndPoint         | Description              |
+|-------------|------------------|--------------------------|
+| GET         | /staging         | Retrieve all players.    |
+| GET         | /staging?id={ID} | Retrieve a player by ID. |
+| POST        | /staging         | Create a new player.     |
+| PUT         | /staging?id={ID} | Update a player by ID.   |
+| DELETE      | /staging?id={ID} | Delete a player by ID.   |
 ## Example Request
 
 ```
