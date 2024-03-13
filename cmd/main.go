@@ -36,7 +36,7 @@ func main() {
 	// Create a new instance of DynamoDB client
 	client = dynamodb.New(Session)
 
-	// Create a new instance of DynamoDB client
+	// Start takes a handler and talks to an internal Lambda endpoint to pass requests to the handler.
 	lambda.Start(handler)
 }
 
