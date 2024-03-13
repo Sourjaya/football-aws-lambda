@@ -31,7 +31,7 @@ To use this API, you can interact with it by sending ID or data as URL parameter
 ## Example Request
 
 ```
-GET ?id=b68c99b8-c770-412e-aff6-36aa977b563
+GET /staging?id=b68c99b8-c770-412e-aff6-36aa977b563
 ```
 ## Example Response
 ```json
