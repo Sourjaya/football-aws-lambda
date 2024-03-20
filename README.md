@@ -65,6 +65,8 @@ To set up this project locally for development or testing purposes, follow these
 
 1. Clone the repository.
 2. Install GoLang and required dependencies.
-3. Set up your AWS credentials and configure the AWS SDK for GoLang.
+3. Set up your AWS credentials and configure the AWS SDK v1 for GoLang.
 4. Customize the code as needed.
 5. Deploy the Lambda function and API Gateway using the AWS CLI or preferred deployment method.
+
+The complete guide can be found in this [article](https://dev.to/sourjaya/build-and-deploy-rest-api-with-aws-lambda-api-gateway-and-dynamodb-using-golang-58ap).
